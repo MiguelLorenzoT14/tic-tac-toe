@@ -54,7 +54,7 @@ function minimax(board: (PlayerSymbol | null)[], depth: number, isMaximizing: bo
 }
 
 function getBestMove(board: (PlayerSymbol | null)[], aiSymbol: PlayerSymbol): number {
-    const playingPerfect = Math.random() > 0.3;
+    const playingPerfect = Math.random() > 0.2;
 
     if (!playingPerfect) {
         const availableMoves = board.map((val, idx) => val === null ? idx : null).filter((v): v is number => v !== null);
@@ -185,7 +185,7 @@ export function useLocalGame(mode: GameMode, userSymbol: PlayerSymbol = 'X') {
                     }
                     setTurn(userSymbol);
                 }
-            }, 600);
+            }, 850);
             return () => clearTimeout(timer);
         }
     }, [mode, turn, aiSymbol, status, winner, board, userSymbol, recordMatch]);
