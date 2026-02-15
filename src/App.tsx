@@ -2,6 +2,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 import GamePage from './pages/GamePage';
 import HistoryPage from './pages/HistoryPage';
 import OnlineGamePage from './pages/OnlineGamePage';
@@ -34,6 +35,7 @@ export default function App() {
         <div className="flex-1">
           <Routes>
             <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/" replace />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="/" element={
               <ProtectedRoute>
                 <GamePage />

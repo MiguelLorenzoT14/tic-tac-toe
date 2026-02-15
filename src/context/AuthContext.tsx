@@ -14,6 +14,8 @@ interface AuthContextType {
     googleSignIn: () => Promise<void>;
     signUp: (email: string, password: string, firstName: string, lastName: string) => Promise<void>;
     signInWithPassword: (email: string, password: string) => Promise<void>;
+    resetPasswordForEmail: (email: string) => Promise<void>;
+    updatePassword: (password: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -134,14 +136,37 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             const { error } = await supabase.auth.signOut();
             if (error) throw error;
             setDisplayName(null);
-            toast.success('Signed out successfully');
+            toast.success('Sesión cerrada con éxito');
         } catch (error) {
             toast.error((error as Error).message);
         }
     };
 
+    const resetPasswordForEmail = async (email: string) => {
+        try {
+            const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                redirectTo: `${window.location.origin}/reset-password`,
+            });
+            if (error) throw error;
+            toast.success('¡Se ha enviado un correo para restablecer tu contraseña!');
+        } catch (error) {
+            toast.error((error as Error).message);
+        }
+    };
+
+    const updatePassword = async (password: string) => {
+        try {
+            const { error } = await supabase.auth.updateUser({ password });
+            if (error) throw error;
+            toast.success('¡Contraseña actualizada con éxito!');
+        } catch (error) {
+            toast.error((error as Error).message);
+            throw error;
+        }
+    };
+
     const value = React.useMemo(() => ({
-        session, user, loading, displayName, signIn, signOut, googleSignIn, signUp, signInWithPassword
+        session, user, loading, displayName, signIn, signOut, googleSignIn, signUp, signInWithPassword, resetPasswordForEmail, updatePassword
     }), [session, user, loading, displayName]);
 
     return (
