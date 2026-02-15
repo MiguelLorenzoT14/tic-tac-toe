@@ -1,5 +1,3 @@
-import { Github } from 'lucide-react';
-
 export function Footer() {
     return (
         <footer
@@ -12,15 +10,6 @@ export function Footer() {
                     Miguel Enrique Lorenzo Torres
                 </span>
             </p>
-            <a
-                href="https://github.com/MiguelLorenzoT14/tic-tac-toe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-white transition-colors duration-200"
-            >
-                <Github size={16} />
-                <span className="underline underline-offset-4">Ver código en GitHub</span>
-            </a>
         </footer>
     );
 }
