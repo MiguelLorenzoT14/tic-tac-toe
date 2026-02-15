@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Button } from '../components/ui/Button';
 import { motion } from 'framer-motion';
+import { toast } from 'react-hot-toast';
 
 export default function LoginPage() {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [loading, setLoading] = useState(false);
@@ -23,6 +25,11 @@ export default function LoginPage() {
         } else if (isLogin) {
             await signInWithPassword(email, password);
         } else {
+            if (password !== confirmPassword) {
+                toast.error('Las contraseñas no coinciden');
+                setLoading(false);
+                return;
+            }
             await signUp(email, password, firstName, lastName);
         }
         setLoading(false);
@@ -107,6 +114,21 @@ export default function LoginPage() {
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                className="w-full rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                                style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--border-color)', color: 'var(--text-primary)' }}
+                                placeholder="••••••••"
+                                required
+                            />
+                        </div>
+                    )}
+
+                    {!isLogin && !isRecovery && (
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Confirmar Contraseña</label>
+                            <input
+                                type="password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                                 className="w-full rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                                 style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--border-color)', color: 'var(--text-primary)' }}
                                 placeholder="••••••••"
