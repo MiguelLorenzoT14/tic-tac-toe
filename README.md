@@ -13,7 +13,7 @@
 
 ### ✨ Una experiencia premium de Triqui (Tres en Raya) moderno, rápido y funcional.
 
-**Tic-Tac-Toe Pro Max** no es solo un juego de tres en raya. Es una aplicación web avanzada construida con las últimas tecnologías para ofrecer una experiencia fluida, competitiva y visualmente impactante. Ahora con **Multijugador Online** en tiempo real.
+**Tic-Tac-Toe Pro Max** no es solo un juego de tres en raya. Es una aplicación web avanzada construida con las últimas tecnologías para ofrecer una experiencia fluida, competitiva y visualmente impactante. Ahora con **Multijugador Online** y desafío contra **Inteligencia Artificial**.
 
 ---
 
@@ -21,6 +21,7 @@
 
 *   **🔐 Autenticación Completa**: Regístrate e inicia sesión de forma segura para guardar tu progreso.
 *   **🌐 Multijugador Online**: Crea una sala, comparte el enlace y juega contra amigos en cualquier parte del mundo.
+*   **🤖 Vs Inteligencia Artificial**: Pon a prueba tus habilidades contra nuestro algoritmo inteligente (Minimax) con diferentes niveles de competitividad.
 *   **👥 Juego Local**: Clásico modo para dos jugadores en el mismo dispositivo.
 *   **⚡ Sincronización en Tiempo Real**: Gracias a **Supabase Realtime**, cada movimiento se refleja instantáneamente.
 *   **📊 Estadísticas Globales**: Registra tus victorias, derrotas y empates para ver quién es el mejor.
@@ -70,12 +71,16 @@ Sigue estos pasos para ejecutar el proyecto localmente:
 
 ---
 
-## 🎮 Cómo Jugar Online
-
+## 🎮 Cómo Jugar
+### Online
 1.  **Inicia sesión** con tu cuenta.
-2.  Haz clic en el botón **"Jugar Online con un amigo"**.
+2.  Haz clic en el botón **"Modo Online"**.
 3.  **Copia el enlace** generado y envíaselo a tu oponente.
 4.  ¡Espera a que se una y prepárate para la batalla!
+
+### Vs Máquina (Solo)
+1.  En el panel principal, selecciona **"VS Inteligencia"**.
+2.  Enfréntate a la IA en un duelo táctico sin necesidad de conexión.
 
 ---
 
