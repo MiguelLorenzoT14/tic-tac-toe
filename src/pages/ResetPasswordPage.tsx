@@ -12,7 +12,7 @@ export default function ResetPasswordPage() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [urlError, setUrlError] = useState<string | null>(null);
-    const { updatePassword } = useAuth();
+    const { updatePassword, signOut } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -56,6 +56,8 @@ export default function ResetPasswordPage() {
         setLoading(true);
         try {
             await updatePassword(password);
+            // Cerramos sesión para que el usuario pueda volver a entrar con su nueva contraseña
+            await signOut();
             setTimeout(() => {
                 navigate('/login');
             }, 2000);

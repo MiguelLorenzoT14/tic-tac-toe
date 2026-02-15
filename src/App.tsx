@@ -6,6 +6,7 @@ import ResetPasswordPage from './pages/ResetPasswordPage';
 import GamePage from './pages/GamePage';
 import HistoryPage from './pages/HistoryPage';
 import OnlineGamePage from './pages/OnlineGamePage';
+import LocalGamePage from './pages/LocalGamePage';
 import { Footer } from './components/layout/Footer';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -44,6 +45,11 @@ export default function App() {
             <Route path="/history" element={
               <ProtectedRoute>
                 <HistoryPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/local-game" element={
+              <ProtectedRoute>
+                <LocalGamePage />
               </ProtectedRoute>
             } />
             <Route path="/game/:id" element={

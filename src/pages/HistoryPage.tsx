@@ -216,7 +216,7 @@ export default function HistoryPage() {
                             {filter === 'ALL' ? 'No hay partidas registradas' : 'No hay partidas con ese filtro'}
                         </p>
                         <p className="text-sm text-gray-500 mt-2">
-                            {filter === 'ALL' ? 'Juega tu primera partida online para verla aquí' : 'Intenta con otro filtro'}
+                            {filter === 'ALL' ? '¡Juega tu primera partida para verla aquí!' : 'Intenta con otro filtro'}
                         </p>
                         {filter === 'ALL' && (
                             <Link to="/" className="mt-6 inline-block">
@@ -263,7 +263,7 @@ export default function HistoryPage() {
 
                                                 {match.game_type === 'online' && (
                                                     <span className="text-xs px-2 py-0.5 rounded-md bg-purple-500/15 text-purple-400 border border-purple-500/20">
-                                                        Online
+                                                        Con un Amigo
                                                     </span>
                                                 )}
 

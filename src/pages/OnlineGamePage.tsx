@@ -74,7 +74,7 @@ export default function OnlineGamePage() {
 
                                 <div className="text-center space-y-2">
                                     <h2 className="text-3xl font-bold bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                                        Esperando Rival
+                                        Esperando a tu Amigo
                                     </h2>
                                     <p className="font-medium" style={{ color: 'var(--text-muted)' }}>
                                         Comparte el enlace para comenzar
